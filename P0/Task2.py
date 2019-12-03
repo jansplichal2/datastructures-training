@@ -12,6 +12,7 @@ with open('calls.csv', 'r') as f:
     calls = list(reader)
 
 def longestTime(calls):
+  """Finds longest time on call"""
   phoneToTime = {}
 
   for call in calls:

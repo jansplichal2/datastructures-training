@@ -14,18 +14,21 @@ with open('calls.csv', 'r') as f:
     calls = list(reader)
 
 def filterCalls(calls, fun):
+  """Filter calls, if predicate function fun returns true, include the call"""
   return [call for call in calls if fun(call)]
 
-def extractCode(call):
-  mobile = re.search(r'\((\d+)\)', call)
+def extractCode(phone):
+  """Extract area code are from phone number"""
+  mobile = re.search(r'\((\d+)\)', phone)
   if mobile:  
     return mobile.group(1)
-  elif call.startswith('140'):
+  elif phone.startswith('140'):
     return '140'
   else: 
-    return call.split(' ')[0]
+    return phone.split(' ')[0]
 
 def codesFromBangalore(bangaloreCalls):
+  """Returns code areas from Bangalore calls"""
   codes = set()
   for call in bangaloreCalls:
     incomingCall = call[1]
@@ -34,6 +37,7 @@ def codesFromBangalore(bangaloreCalls):
   return sorted(codes)
 
 def localPercentage(bangaloreCalls):
+  """Calculates percentage of calls from Bangalore to Bangalore"""
   totalCalls = len(bangaloreCalls)
   toBangaloreCalls = filterCalls(bangaloreCalls, lambda x: x[1].startswith('(080)'))
   percentage = (len(toBangaloreCalls) / totalCalls) * 100

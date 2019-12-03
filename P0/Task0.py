@@ -13,6 +13,7 @@ with open('calls.csv', 'r') as f:
     calls = list(reader)
 
 def main(texts, calls):
+  """Print first record of tests and last record of calls."""
   sending, receiving, time = texts[0]
   print('First record of texts, {} texts {} at time {}'.format(sending, receiving, time))
   sending, receiving, time, duration = calls[len(calls) - 1]

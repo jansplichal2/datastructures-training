@@ -12,6 +12,7 @@ with open('calls.csv', 'r') as f:
     calls = list(reader)
 
 def uniquePhoneNumbers(texts, calls):
+  """Returns number of different numbers in records"""
   uniques = set()
   
   for text in texts:
@@ -20,7 +21,7 @@ def uniquePhoneNumbers(texts, calls):
     uniques.add(receiving)
 
   for call in calls:
-    sending, receiving, *rest = call
+    sending, receiving, *_ = call
     uniques.add(sending)
     uniques.add(receiving)
     

@@ -1,0 +1,38 @@
+
+
+1. Task0 -> 
+    Worst case performance = constant time = O(1)
+    Explanation: 
+        Assuming m is number of calls and n is number of texts messages.
+        Array access is constant time operation, so we have O(1) + O(1) ~= O(1)
+
+2. Task1 ->
+    Worst case performance = linear time = O(n)
+    Explanation: 
+        Assuming m is number of calls and n is number of texts messages.
+        Adding to set is constant time operation and we do it twice so - 2 * len(m) + 2 * len(n) ~= O(n + m)
+
+3. Task2 ->
+    Worst case performance = linear time = O(n)
+    Explanation: 
+        Assuming n is number of calls.
+        Adding and getting from dictionary is constant time operation, and finding maximum is linear time so we have 4 * len(n) + len(n) ~= O(n)
+
+4. Task3 ->
+    Worst case performance 
+        PartA: log-linear time = O(n * log n)
+        PartB: linear time = O(n)
+    Explanation: 
+        Assuming n is number of calls and m is number of code areas.
+
+    PartA:
+     We filter twice and that sort area codes so we have len(n) + len(n) + (m * log m) ~= O(m * log m).
+     If the number of area codes is a small subset of n we can consider it linear time.
+    PartB:
+     We filter twice so we have len(n) + len(n) ~= O(n)
+
+5. Task4 ->
+    Worst case performance = linear time = O(n)
+    Explanation: 
+        Assuming m is number of calls and n is number of texts messages.
+        Adding to set is constant time operation and set difference is linear so we have len(m) + 2 * len(n) + len(unique(n)) + len(unique(m)) ~= O(n + m)

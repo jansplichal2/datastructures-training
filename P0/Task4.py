@@ -13,6 +13,7 @@ with open('calls.csv', 'r') as f:
     calls = list(reader)
 
 def textingNumbers(texts):
+  """Gets phone numbers that are texting"""
   texting = set()
   for text in texts:
     incoming, receiving, _ = text
@@ -21,18 +22,21 @@ def textingNumbers(texts):
   return texting
 
 def calledNumbers(calls):
+  """Gets phone numbers that have been called"""
   called = set()
   for call in calls:
     called.add(call[1])
   return called
 
 def callingNumbers(calls):
+  """Gets phone numbers that have been calling somebody"""
   calling = set()
   for call in calls:
     calling.add(call[0])
   return calling
 
 def possibleMarketers(calls, texts):
+  """Gets calling numbers minus called numbers and texting numbers"""
   callers = callingNumbers(calls)
   called = calledNumbers(calls)
   texting = textingNumbers(texts)  
