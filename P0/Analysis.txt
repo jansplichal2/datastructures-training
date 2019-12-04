@@ -32,7 +32,8 @@
      We filter twice so we have len(n) + len(n) ~= O(n)
 
 5. Task4 ->
-    Worst case performance = linear time = O(n)
+    Worst case performance = log-linear time = O(n * log n)
     Explanation: 
-        Assuming m is number of calls and n is number of texts messages.
-        Adding to set is constant time operation and set difference is linear so we have len(m) + 2 * len(n) + len(unique(n)) + len(unique(m)) ~= O(n + m)
+        Assuming m is number of calls and n is number of texts messages and t is number of telemarketers.
+        Adding to set is constant time operation and set difference is linear and sorting of telemarketers is log-linear so we have len(m) + 2 * len(n) + len(unique(n)) + len(unique(m)) + (t * log t) ~= O(t * log t)
+        If the number of telemarketers is a small subset of m we can consider it linear time.

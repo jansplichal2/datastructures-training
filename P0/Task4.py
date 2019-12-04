@@ -46,7 +46,7 @@ def possibleMarketers(calls, texts):
 def main(calls, texts):
   telemarketers = possibleMarketers(calls, texts)
   print("These numbers could be telemarketers: ")
-  print('\n'.join(telemarketers))  
+  print('\n'.join(sorted(telemarketers)))  
 
 main(calls, texts)
 
