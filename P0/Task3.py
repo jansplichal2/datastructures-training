@@ -19,13 +19,13 @@ def filterCalls(calls, fun):
 
 def extractCode(phone):
   """Extract area code are from phone number"""
-  mobile = re.search(r'\((\d+)\)', phone)
-  if mobile:  
-    return mobile.group(1)
+  fixed = re.search(r'\((\d+)\)', phone)
+  if fixed:  
+    return fixed.group(1)
   elif phone.startswith('140'):
     return '140'
   else: 
-    return phone.split(' ')[0]
+    return phone.split(' ')[0][:4]
 
 def codesFromBangalore(bangaloreCalls):
   """Returns code areas from Bangalore calls"""
